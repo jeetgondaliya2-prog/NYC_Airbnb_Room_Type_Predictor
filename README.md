@@ -49,44 +49,7 @@ The project covers the full path from raw data to a working product:
 
 ## 🎬 Demo
 
-> 📸 **Add your screenshot or GIF here.** Record the page with [ScreenToGif](https://www.screentogif.com/) or [Kap](https://getkap.co/), save it as `assets/demo.gif`, then replace this block with:
->
-> `<img src="assets/demo.gif" alt="App demo" width="100%"/>`
 
-### What the interface does
-
-<table>
-<tr>
-<td width="50%">
-
-**🗺️ Live map**
-A canvas map of NYC shows thousands of listing dots. A glowing marker glides to the location as you change the borough, neighbourhood or coordinates.
-
-**🚇 Subway-style boroughs**
-Each borough is a coloured bullet, like a subway line sign.
-
-**⚡ One-click samples**
-Manhattan loft, Brooklyn room and Queens bunk fill the form instantly.
-
-</td>
-<td width="50%">
-
-**📡 Radar pulse while predicting**
-The marker sends out rings while the request runs.
-
-**📊 Animated result**
-The verdict bullet pops in, probability bars fill, and percentages count up. The page glow changes to the predicted line colour.
-
-**🛡️ Friendly validation**
-Rules mirror the backend. Invalid fields shake and turn red. Server errors are shown in plain language.
-
-</td>
-</tr>
-</table>
-
-♿ The UI is responsive, shows keyboard focus, and respects the *reduce motion* setting.
-
----
 
 ## 🔄 Workflow
 
