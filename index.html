@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stay Type Predictor · NYC Airbnb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="shell">
+
+  <!-- LEFT: form -->
+  <section class="form-side">
+    <header class="intro">
+      <h1>What kind of stay is this listing?</h1>
+      <p>Describe a New York listing and the model tells you whether it is an entire home, a private room or a shared room.</p>
+    </header>
+
+    <div class="samples" aria-label="Sample listings">
+      <span>Try a sample</span>
+      <button type="button" class="chip" data-sample="loft">Manhattan loft</button>
+      <button type="button" class="chip" data-sample="room">Brooklyn room</button>
+      <button type="button" class="chip" data-sample="bunk">Queens bunk</button>
+    </div>
+
+    <form id="form" novalidate>
+      <fieldset>
+        <legend>Where is it?</legend>
+        <div class="boroughs" id="boroughs" role="radiogroup" aria-label="Borough"></div>
+        <div class="grid two">
+          <label class="field">Neighbourhood
+            <select id="neighbourhood"></select>
+          </label>
+          <div class="grid two tight">
+            <label class="field">Latitude
+              <input type="number" id="latitude" step="0.0001" min="-90" max="90">
+            </label>
+            <label class="field">Longitude
+              <input type="number" id="longitude" step="0.0001" min="-180" max="180">
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Price and rules</legend>
+        <div class="field">
+          <div class="field-head"><label for="price">Price per night</label><output id="priceOut">$120</output></div>
+          <input type="range" id="priceRange" min="10" max="1000" step="5" value="120">
+          <input type="number" id="price" min="1" step="1" value="120" class="sr-only" tabindex="-1" aria-hidden="true">
+        </div>
+        <div class="grid two">
+          <label class="field">Minimum nights
+            <input type="number" id="minimum_nights" min="1" max="365" value="2">
+          </label>
+          <label class="field">Host’s total listings
+            <input type="number" id="calculated_host_listings_count" min="0" value="1">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Activity</legend>
+        <div class="grid two">
+          <label class="field">Total reviews
+            <input type="number" id="number_of_reviews" min="0" value="24">
+          </label>
+          <label class="field">Reviews per month
+            <input type="number" id="reviews_per_month" min="0" step="0.01" value="1.2">
+          </label>
+        </div>
+        <div class="field">
+          <div class="field-head"><label for="availability_365">Days available this year</label><output id="availOut">180 days</output></div>
+          <input type="range" id="availability_365" min="0" max="365" value="180">
+        </div>
+      </fieldset>
+
+      <button type="submit" class="cta" id="submit"><span class="cta-label">Predict room type</span><span class="spinner" aria-hidden="true"></span></button>
+      <p class="form-error" id="formError" role="alert" hidden></p>
+    </form>
+
+    <details class="api">
+      <summary><span class="dot" id="apiDot"></span>API connection</summary>
+      <label class="field">Backend URL
+        <input type="url" id="apiUrl" value="http://127.0.0.1:8000" spellcheck="false">
+      </label>
+    </details>
+  </section>
+
+  <!-- RIGHT: map + result -->
+  <aside class="result-side">
+    <div class="map-wrap">
+      <canvas id="map" aria-label="Map of New York showing the listing location" role="img"></canvas>
+      <div class="map-tag" id="mapTag">Manhattan</div>
+    </div>
+
+    <div class="result" id="result" data-state="idle">
+      <div class="state idle">
+        <h2>Your prediction appears here</h2>
+        <p>Fill in the listing and choose Predict room type.</p>
+      </div>
+      <div class="state loading">
+        <h2>Reading the listing…</h2>
+        <p>Comparing it with 48,000 New York stays.</p>
+      </div>
+      <div class="state done">
+        <div class="verdict">
+          <span class="bullet" id="bullet">E</span>
+          <div>
+            <small>Most likely</small>
+            <h2 id="verdict">Entire home/apt</h2>
+          </div>
+          <div class="conf"><b id="confNum">0</b><span>%</span></div>
+        </div>
+        <ul class="bars" id="bars"></ul>
+      </div>
+      <div class="state fail">
+        <h2>Couldn’t reach the model</h2>
+        <p id="failMsg"></p>
+      </div>
+    </div>
+  </aside>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
