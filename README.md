@@ -49,7 +49,7 @@ The project covers the full path from raw data to a working product:
 
 ## 🎬 Demo
 
-🎬 **Demo:** [nyc-airbnb-room-type-predictor](https://nyc-airbnb-room-type-predictor-isxj-e0uh8gabx-trinetr5.vercel.app)
+**LINK:** [nyc-airbnb-room-type-predictor](https://nyc-airbnb-room-type-predictor-isxj-hi8v24mqw-trinetra5.vercel.app/)
 
 
 ## 🔄 Workflow
