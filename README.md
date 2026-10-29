@@ -1,7 +1,7 @@
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=210&section=header&text=NYC%20Stay%20Type%20Predictor&fontSize=44&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Machine%20learning%20%2B%20FastAPI%20%2B%20an%20interactive%20web%20UI&descAlignY=58&descSize=17" alt="NYC Stay Type Predictor banner" width="100%"/>
-
+ 
 <a href="https://github.com/your-username/your-repo">
   <img src="https://readme-typing-svg.demolab.com?font=Bricolage+Grotesque&weight=600&size=22&pause=1100&color=4A8DFF&center=true&vCenter=true&width=640&lines=Is+it+an+entire+home%3F;Is+it+a+private+room%3F;Is+it+a+shared+room%3F;Describe+a+New+York+listing.+Get+the+answer." alt="Typing animation"/>
 </a>
